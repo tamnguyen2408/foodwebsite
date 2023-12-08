@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+    <div class="signupForm">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div class="inputBox">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" required>
+                <span class="error-message" id="username-error"></span>
+                <i class="fa-regular fa-user"></i>
+                <span>Username</span>
+            </div>
+            <div class="inputBox">
+                <label for="email"></label>
+                <input type="text" id="email" name="email" required>
+                <span class="error-message" id="email-error"></span>
+                <i class="fa-regular fa-envelope"></i>
+                <span>Email address</span>
+            </div>
+            <div class="inputBox">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" required>
+                <span class="error-message" id="password-error"></span>
+                <i class="fa-solid fa-lock"></i>
+                <span>Create password</span>
+            </div>
+            <div class="inputBox">
+                <label for="confirm"></label>
+                <input type="password" id="confirm" name="confirm" required>
+                <span class="error-message" id="confirm-error"></span>
+                <i class="fa-solid fa-lock"></i>
+                <span>Confirm password</span>
+            </div>
+            <div class="inputBox">
+                <button type="submit">Create Account</button>
+                <p>Do you already have an account ? <a href="login.html">Login</a></p>
+            </div>
+            <div class="success-message" id="success-message"></div>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const signupForm = document.getElementById("signupForm");
+            const successMessage = document.getElementById("success-message");
+    
+            function validateForm() {
+                const usernameValid = validateInput("username", "Username must be at least 5 characters.", value => value.length >= 5);
+                const emailValid = validateInput("email", "Invalid email address.", value => /\S+@\S+\.\S+/.test(value));
+                const passwordValid = validateInput("password", "Password must be at least 8 characters.", value => value.length >= 8);
+                const confirmPasswordValid = validateConfirmPassword();
+    
+                return usernameValid && emailValid && passwordValid && confirmPasswordValid;
+            }
+    
+            function validateInput(inputId, errorMessage, validationFunction) {
+                const inputElement = document.getElementById(inputId);
+                const errorElement = document.getElementById(`${inputId}-error`);
+    
+                function checkInput() {
+                    if (validationFunction(inputElement.value)) {
+                        hideError(errorElement);
+                    } else {
+                        showError(errorElement, errorMessage);
+                    }
+                }
+    
+                inputElement.addEventListener("input", checkInput);
+    
+                // Check on form submission as well
+                signupForm.addEventListener("submit", function (event) {
+                    checkInput();
+                    if (validateForm()) {
+                        showSuccessMessage();
+                    }
+                });
+            }
+    
+            // Validate username (minimum 5 characters)
+            validateInput("username", "Username must be at least 5 characters.", value => value.length >= 5);
+    
+            // Validate email (must contain @ and after @ must contain .)
+            validateInput("email", "Invalid email address.", value => /\S+@\S+\.\S+/.test(value));
+    
+            // Validate password (optional: add more complex rules)
+            validateInput("password", "Password must be at least 8 characters.", value => value.length >= 8);
+    
+            // Validate confirm password
+            function validateConfirmPassword() {
+                const password = document.getElementById("password").value;
+                const confirm = document.getElementById("confirm").value;
+                const confirmErrorElement = document.getElementById("confirm-error");
+    
+                if (password === confirm) {
+                    hideError(confirmErrorElement);
+                    return true;
+                } else {
+                    showError(confirmErrorElement, "Passwords do not match.");
+                    return false;
+                }
+            }
+    
+            validateInput("confirm", "Passwords do not match.", validateConfirmPassword);
+    
+            function showError(errorElement, errorMessage) {
+                errorElement.textContent = errorMessage;
+                errorElement.style.color = "red";
+            }
+    
+            function hideError(errorElement) {
+                errorElement.textContent = "";
+            }
+    
+            function showSuccessMessage() {
+                successMessage.textContent = "Account created successfully!";
+                successMessage.style.color = "green";
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

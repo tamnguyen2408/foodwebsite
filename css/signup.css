@@ -1,0 +1,139 @@
+@import url('http://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #223243;
+}
+
+.signupForm {
+    padding: 40px;
+    border-radius: 20px;
+    border: 8px solid #223243;
+    box-shadow: -5px -5px 15px rgb(255, 255, 255, 0.1),
+        5px 5px 15px rgb(0, 0, 0, 0.35),
+        inset -5px 15px rgb(255, 255, 255, 0.1),
+        inset 5px 15px rgb(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.signupForm h2 {
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.signupForm .inputBox {
+    position: relative;
+    width: 300px;
+}
+
+.signupForm .inputBox input {
+    margin: 0 0 20px;
+    padding: 12px 10px 12px 48px;
+    border: none;
+    width: 100%;
+    background: #223243;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-weight: 300;
+    border-radius: 25px;
+    font-size: 1em;
+    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.35);
+    transition: 0.5s;
+    outline: none;
+}
+
+.signupForm .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 12px 10px 12px 48px;
+    pointer-events: none;
+    font-size: 1em;
+    font-weight: 300;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.signupForm .inputBox input:valid~span,
+.signupForm .inputBox input:focus~span {
+    color: #00dfc4;
+    border: 1px solid #00dfc4;
+    background: #223243;
+    transform: translateX(25px) translateY(-7px);
+    font-size: 0.6em;
+    padding: 0 8px;
+    border-radius: 10px;
+    letter-spacing: 0.1em;
+}
+
+.signupForm .inputBox input:valid,
+.signupForm .inputBox input:focus {
+    border: 1px solid #00dfc4;
+}
+
+.signupForm .inputBox i {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    width: 25px;
+    padding: 2px 0;
+    padding-right: 8px;
+    color: #00dfc4;
+    border-right: 1px solid #00dfc4;
+}
+
+.signupForm .inputBox button[type="submit"] {
+    background: #00dfc4;
+    color: #223243;
+    padding: 10px 0;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 50px;
+    /* Hoặc sử dụng giá trị phù hợp */
+    width: 200px;
+    /* Thay đổi chiều rộng theo nhu cầu của bạn */
+    margin: 0 center;
+    /* Để căn giữa nút trong form */
+    box-shadow: -5px -5px 15px rgb(255, 255, 255, 0.1),
+        5px 5px 15px rgb(0, 0, 0, 0.35),
+        inset -5px 15px rgb(255, 255, 255, 0.1),
+        inset 5px 15px rgb(0, 0, 0, 0.35);
+    width: 200px;
+    
+}
+
+
+
+
+
+.signupForm p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75em;
+    font-weight: 300;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.signupForm p a {
+    font-weight: 500;
+    color: #fff;
+}
