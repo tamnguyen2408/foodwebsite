@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+    <div class="signupForm">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div class="inputBox">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" required>
+                <span class="error-message" id="username-error"></span>
+                <i class="fa-regular fa-user"></i>
+                <span>Username</span>
+            </div>
+            <div class="inputBox">
+                <label for="email"></label>
+                <input type="text" id="email" name="email" required>
+                <span class="error-message" id="email-error"></span>
+                <i class="fa-regular fa-envelope"></i>
+                <span>Email address</span>
+            </div>
+            <div class="inputBox">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" required>
+                <span class="error-message" id="password-error"></span>
+                <i class="fa-solid fa-lock"></i>
+                <span>Create password</span>
+            </div>
+            <div class="inputBox">
+                <label for="confirm"></label>
+                <input type="password" id="confirm" name="confirm" required>
+                <span class="error-message" id="confirm-error"></span>
+                <i class="fa-solid fa-lock"></i>
+                <span>Confirm password</span>
+            </div>
+            <div class="inputBox">
+                <button type="submit">Create Account</button>
+                <p>Do you already have an account ? <a href="login.html">Login</a></p>
+            </div>
+            <div class="success-message" id="success-message"></div>
+        </form>
+    </div>
+    <script src="js/register.js"></script>
+        
+   
+    
+</body>
+
+</html>

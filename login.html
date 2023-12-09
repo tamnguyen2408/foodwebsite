@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="signinForm">
+        <h2>Sign In</h2>
+        <form id="loginForm">
+            <div class="inputBox">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" required>
+                <i class="fa-regular fa-user"></i>
+                <span>Username</span>
+            </div>
+            <div class="inputBox">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" required>
+                <!-- Giữ nguyên icon của bạn -->
+                <i class="fa-solid fa-lock"></i>
+                <!-- Thêm icon ẩn/hiện password -->
+                <i class="fa-regular fa-eye" id="showPassword"></i>
+                <i class="fa-regular fa-eye-slash" id="hidePassword"></i>
+                <span>Password</span>
+            </div>
+            <div class="inputBox">
+                <button type="submit">Login</button>
+            </div>
+            <p>Not Registered ? <a href="register.html">Create an account</a></p>
+            <!-- Thêm phần tử để hiển thị thông báo -->
+            <div id="loginMessage"></div>
+        </form>
+    </div>
+    <script src="js/login.js"></script>
+        
+</body>
+
+</html>
